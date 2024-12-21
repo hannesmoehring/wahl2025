@@ -1,0 +1,652 @@
+{
+    "afd": {
+        "text_length": 33419,
+        "sentiment_analysis": {
+            "average_sentiment": -0.033343896713615026,
+            "sentiment_words_count": 2130,
+            "total_words": 33419,
+            "sentiment_coverage": 0.06373619797121398,
+            "max_positive_sentiment": 0.6502,
+            "max_negative_sentiment": -1.0
+        },
+        "text_analysis": {
+            "readability_metrics": {
+                "avg_sentence_length": 18.57,
+                "avg_word_length": 6.83,
+                "syllables_per_word": 2.03
+            },
+            "vocabulary_richness": {
+                "unique_words": 7242,
+                "type_token_ratio": 0.3737,
+                "hapaxlegomena": 5026
+            },
+            "top_keywords": [
+                [
+                    "eine",
+                    252
+                ],
+                [
+                    "wir",
+                    237
+                ],
+                [
+                    "des",
+                    226
+                ],
+                [
+                    "deutschland",
+                    168
+                ],
+                [
+                    "durch",
+                    168
+                ],
+                [
+                    "nicht",
+                    167
+                ],
+                [
+                    "im",
+                    149
+                ],
+                [
+                    "ein",
+                    135
+                ],
+                [
+                    "afd",
+                    116
+                ],
+                [
+                    "sich",
+                    115
+                ],
+                [
+                    "als",
+                    114
+                ],
+                [
+                    "zur",
+                    107
+                ],
+                [
+                    "einer",
+                    105
+                ],
+                [
+                    "auch",
+                    102
+                ],
+                [
+                    "muss",
+                    97
+                ],
+                [
+                    "wie",
+                    95
+                ],
+                [
+                    "alternative",
+                    91
+                ],
+                [
+                    "partei",
+                    89
+                ],
+                [
+                    "weg",
+                    88
+                ],
+                [
+                    "an",
+                    86
+                ]
+            ],
+            "policy_focus": {
+                "wirtschaft": 6.07,
+                "umwelt": 1.86,
+                "soziales": 9.16,
+                "bildung": 5.03,
+                "sicherheit": 3.26
+            },
+            "sentence_stats": {
+                "total_sentences": 1800,
+                "max_sentence_length": 434,
+                "min_sentence_length": 1,
+                "complex_sentences": 606
+            },
+            "comparative_metrics": {
+                "future_orientation": 143,
+                "concrete_measures": 3,
+                "intensity_markers": 29
+            }
+        },
+        "mentioned_parties": {
+            "afd": 127,
+            "union": 15,
+            "spd": 0,
+            "gruene": 0,
+            "fdp": 0
+        }
+    },
+    "union": {
+        "text_length": 29667,
+        "sentiment_analysis": {
+            "average_sentiment": 0.016501450742240215,
+            "sentiment_words_count": 2964,
+            "total_words": 29667,
+            "sentiment_coverage": 0.09990898978663161,
+            "max_positive_sentiment": 0.6093,
+            "max_negative_sentiment": -1.0
+        },
+        "text_analysis": {
+            "readability_metrics": {
+                "avg_sentence_length": 12.33,
+                "avg_word_length": 6.32,
+                "syllables_per_word": 2.05
+            },
+            "vocabulary_richness": {
+                "unique_words": 5448,
+                "type_token_ratio": 0.3048,
+                "hapaxlegomena": 3439
+            },
+            "top_keywords": [
+                [
+                    "wir",
+                    1034
+                ],
+                [
+                    "eine",
+                    247
+                ],
+                [
+                    "ein",
+                    172
+                ],
+                [
+                    "auch",
+                    153
+                ],
+                [
+                    "im",
+                    148
+                ],
+                [
+                    "es",
+                    142
+                ],
+                [
+                    "mehr",
+                    136
+                ],
+                [
+                    "des",
+                    127
+                ],
+                [
+                    "unser",
+                    120
+                ],
+                [
+                    "wollen",
+                    116
+                ],
+                [
+                    "sie",
+                    108
+                ],
+                [
+                    "uns",
+                    104
+                ],
+                [
+                    "nicht",
+                    101
+                ],
+                [
+                    "muss",
+                    96
+                ],
+                [
+                    "setzen",
+                    94
+                ],
+                [
+                    "einen",
+                    91
+                ],
+                [
+                    "m\u00fcssen",
+                    90
+                ],
+                [
+                    "an",
+                    89
+                ],
+                [
+                    "dass",
+                    87
+                ],
+                [
+                    "einer",
+                    86
+                ]
+            ],
+            "policy_focus": {
+                "wirtschaft": 8.9,
+                "umwelt": 2.76,
+                "soziales": 9.3,
+                "bildung": 6.51,
+                "sicherheit": 7.35
+            },
+            "sentence_stats": {
+                "total_sentences": 2406,
+                "max_sentence_length": 67,
+                "min_sentence_length": 1,
+                "complex_sentences": 301
+            },
+            "comparative_metrics": {
+                "future_orientation": 113,
+                "concrete_measures": 7,
+                "intensity_markers": 23
+            }
+        },
+        "mentioned_parties": {
+            "afd": 0,
+            "union": 22,
+            "spd": 0,
+            "gruene": 0,
+            "fdp": 0
+        }
+    },
+    "spd": {
+        "text_length": 26376,
+        "sentiment_analysis": {
+            "average_sentiment": 0.019576347421481195,
+            "sentiment_words_count": 2579,
+            "total_words": 26376,
+            "sentiment_coverage": 0.09777828328783743,
+            "max_positive_sentiment": 1.0,
+            "max_negative_sentiment": -1.0
+        },
+        "text_analysis": {
+            "readability_metrics": {
+                "avg_sentence_length": 14.53,
+                "avg_word_length": 7.11,
+                "syllables_per_word": 2.17
+            },
+            "vocabulary_richness": {
+                "unique_words": 4256,
+                "type_token_ratio": 0.2921,
+                "hapaxlegomena": 2666
+            },
+            "top_keywords": [
+                [
+                    "wir",
+                    719
+                ],
+                [
+                    "wollen",
+                    243
+                ],
+                [
+                    "eine",
+                    240
+                ],
+                [
+                    "im",
+                    167
+                ],
+                [
+                    "dass",
+                    159
+                ],
+                [
+                    "auch",
+                    157
+                ],
+                [
+                    "ein",
+                    135
+                ],
+                [
+                    "es",
+                    115
+                ],
+                [
+                    "um",
+                    111
+                ],
+                [
+                    "des",
+                    96
+                ],
+                [
+                    "uns",
+                    95
+                ],
+                [
+                    "nicht",
+                    92
+                ],
+                [
+                    "durch",
+                    88
+                ],
+                [
+                    "an",
+                    82
+                ],
+                [
+                    "als",
+                    79
+                ],
+                [
+                    "wie",
+                    79
+                ],
+                [
+                    "mehr",
+                    78
+                ],
+                [
+                    "einen",
+                    75
+                ],
+                [
+                    "setzen",
+                    72
+                ],
+                [
+                    "sie",
+                    72
+                ]
+            ],
+            "policy_focus": {
+                "wirtschaft": 6.82,
+                "umwelt": 3.53,
+                "soziales": 12.47,
+                "bildung": 6.1,
+                "sicherheit": 5.99
+            },
+            "sentence_stats": {
+                "total_sentences": 1815,
+                "max_sentence_length": 62,
+                "min_sentence_length": 1,
+                "complex_sentences": 378
+            },
+            "comparative_metrics": {
+                "future_orientation": 213,
+                "concrete_measures": 12,
+                "intensity_markers": 39
+            }
+        },
+        "mentioned_parties": {
+            "afd": 0,
+            "union": 8,
+            "spd": 19,
+            "gruene": 0,
+            "fdp": 1
+        }
+    },
+    "gruene": {
+        "text_length": 34172,
+        "sentiment_analysis": {
+            "average_sentiment": 0.025275633640553,
+            "sentiment_words_count": 3472,
+            "total_words": 34172,
+            "sentiment_coverage": 0.10160365211284092,
+            "max_positive_sentiment": 0.6022,
+            "max_negative_sentiment": -1.0
+        },
+        "text_analysis": {
+            "readability_metrics": {
+                "avg_sentence_length": 12.46,
+                "avg_word_length": 6.34,
+                "syllables_per_word": 2.07
+            },
+            "vocabulary_richness": {
+                "unique_words": 5536,
+                "type_token_ratio": 0.277,
+                "hapaxlegomena": 3497
+            },
+            "top_keywords": [
+                [
+                    "wir",
+                    990
+                ],
+                [
+                    "eine",
+                    329
+                ],
+                [
+                    "wollen",
+                    287
+                ],
+                [
+                    "auch",
+                    248
+                ],
+                [
+                    "im",
+                    168
+                ],
+                [
+                    "ein",
+                    163
+                ],
+                [
+                    "dass",
+                    147
+                ],
+                [
+                    "durch",
+                    143
+                ],
+                [
+                    "menschen",
+                    142
+                ],
+                [
+                    "sie",
+                    138
+                ],
+                [
+                    "es",
+                    134
+                ],
+                [
+                    "des",
+                    129
+                ],
+                [
+                    "oder",
+                    115
+                ],
+                [
+                    "sich",
+                    114
+                ],
+                [
+                    "um",
+                    112
+                ],
+                [
+                    "unsere",
+                    111
+                ],
+                [
+                    "daf\u00fcr",
+                    111
+                ],
+                [
+                    "uns",
+                    109
+                ],
+                [
+                    "wie",
+                    108
+                ],
+                [
+                    "einen",
+                    107
+                ]
+            ],
+            "policy_focus": {
+                "wirtschaft": 6.26,
+                "umwelt": 5.97,
+                "soziales": 9.28,
+                "bildung": 4.89,
+                "sicherheit": 5.3
+            },
+            "sentence_stats": {
+                "total_sentences": 2743,
+                "max_sentence_length": 64,
+                "min_sentence_length": 1,
+                "complex_sentences": 579
+            },
+            "comparative_metrics": {
+                "future_orientation": 227,
+                "concrete_measures": 6,
+                "intensity_markers": 51
+            }
+        },
+        "mentioned_parties": {
+            "afd": 0,
+            "union": 11,
+            "spd": 0,
+            "gruene": 2,
+            "fdp": 0
+        }
+    },
+    "fdp": {
+        "text_length": 20879,
+        "sentiment_analysis": {
+            "average_sentiment": 0.02154661446338093,
+            "sentiment_words_count": 2171,
+            "total_words": 20879,
+            "sentiment_coverage": 0.10398007567412232,
+            "max_positive_sentiment": 1.0,
+            "max_negative_sentiment": -1.0
+        },
+        "text_analysis": {
+            "readability_metrics": {
+                "avg_sentence_length": 14.04,
+                "avg_word_length": 6.79,
+                "syllables_per_word": 2.17
+            },
+            "vocabulary_richness": {
+                "unique_words": 4737,
+                "type_token_ratio": 0.3435,
+                "hapaxlegomena": 3165
+            },
+            "top_keywords": [
+                [
+                    "wir",
+                    647
+                ],
+                [
+                    "wollen",
+                    268
+                ],
+                [
+                    "eine",
+                    208
+                ],
+                [
+                    "ein",
+                    131
+                ],
+                [
+                    "freie",
+                    115
+                ],
+                [
+                    "demokraten",
+                    113
+                ],
+                [
+                    "durch",
+                    111
+                ],
+                [
+                    "uns",
+                    107
+                ],
+                [
+                    "dass",
+                    107
+                ],
+                [
+                    "im",
+                    106
+                ],
+                [
+                    "auch",
+                    104
+                ],
+                [
+                    "des",
+                    101
+                ],
+                [
+                    "nicht",
+                    100
+                ],
+                [
+                    "mehr",
+                    92
+                ],
+                [
+                    "um",
+                    87
+                ],
+                [
+                    "sich",
+                    76
+                ],
+                [
+                    "deutschland",
+                    76
+                ],
+                [
+                    "einer",
+                    75
+                ],
+                [
+                    "es",
+                    73
+                ],
+                [
+                    "muss",
+                    73
+                ]
+            ],
+            "policy_focus": {
+                "wirtschaft": 8.19,
+                "umwelt": 3.45,
+                "soziales": 8.96,
+                "bildung": 7.38,
+                "sicherheit": 4.84
+            },
+            "sentence_stats": {
+                "total_sentences": 1487,
+                "max_sentence_length": 54,
+                "min_sentence_length": 1,
+                "complex_sentences": 280
+            },
+            "comparative_metrics": {
+                "future_orientation": 82,
+                "concrete_measures": 4,
+                "intensity_markers": 28
+            }
+        },
+        "mentioned_parties": {
+            "afd": 0,
+            "union": 9,
+            "spd": 0,
+            "gruene": 0,
+            "fdp": 2
+        }
+    }
+}

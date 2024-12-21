@@ -1,1 +1,8 @@
 /.DS_Store
+/__pycache__/
+notex.txt
+
+wahl_dashboard/node_modules/
+wahl_dashboard/.next/
+wahl_dashboard/.swc/
+wahl_dashboard/.*.env
