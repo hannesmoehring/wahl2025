@@ -96,13 +96,33 @@ const PartyDashboard = () => {
     'sonstiges'>('positive_nomen');
 
 
-  useEffect(() => {
-    fetch('/combined_data.json')
-      .then(response => response.json())
-      .then((jsonData: CombinedData) => setData(jsonData))
-      .catch(error => console.error('Error loading data:', error));
-  }, []);
+    const [error, setError] = useState<string | null>(null);
 
+    useEffect(() => {
+      console.log('Component mounted, attempting to fetch data');
+      fetch('/combined_data.json')
+        .then(response => {
+          console.log('Response received:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((jsonData: CombinedData) => {
+          console.log('Data parsed successfully:', Object.keys(jsonData));
+          setData(jsonData);
+        })
+        .catch(error => {
+          console.error('Error loading data:', error);
+          setError(error.message);
+        });
+    }, []);
+  
+    if (error) return <div className="text-red-600">Error loading data: {error}</div>;
+    if (!data) return <div className="text-gray-600">
+      <h1 className="text-2xl">Loading Dashboard...</h1>
+      <p>Attempting to fetch data...</p>
+    </div>;
   if (!data) return <div>Loading...</div>;
 
   // Fixed topKeywordsData
