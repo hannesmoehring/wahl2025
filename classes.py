@@ -3,13 +3,14 @@ import re
 from typing import List, Dict, Tuple
 
 class PartyObject:
-    def __init__(self, name  : str,text : str):
+    def __init__(self, name  : str, text : str):
         self.name = name
         self.text = text
         self.length = len(text.split())
         self.mentioned_parties = {}
         self.text_metrics = {}
         self.sentiment_metrics = {}
+        self.alias = []
 
 
 class SentimentAnalyzer:
@@ -132,12 +133,20 @@ class TextAnalyzer:
     def _analyze_policy_areas(self, text: str) -> Dict[str, float]:
         text_lower = text.lower()
         results = {}
-        
+        sum_total = 0
         for area, keywords in self.policy_areas.items():
             count = sum(text_lower.count(keyword) for keyword in keywords)
-            # Normalize by text length
             results[area] = round(count / len(text.split()) * 1000, 2)  # Occurrences per 1000 words
-            
+        
+        for area, value in results.items():
+            sum_total += value
+        
+        for area, value in results.items():
+            results[area] = (int) ((value / sum_total) * 100)
+
+        print(results)
+        # normalize the results
+        
         return results
 
     def _analyze_sentences(self, text: str) -> dict:

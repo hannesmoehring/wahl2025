@@ -7,6 +7,21 @@ import {
   PolarRadiusAxis, Radar, LineChart, Line
 } from 'recharts';
 
+
+type WordCategory = 'negative_nomen' | 'negative_verben' | 'negative_adjektive' | 
+                   'positive_nomen' | 'positive_verben' | 'positive_adjektive' | 
+                   'sonstiges';
+
+const PARTY_COLORS = {
+  'afd': '#009EE0',
+  'union': '#000000',
+  'spd': '#E3000F',
+  'gruene': '#46962b',
+  'fdp': '#FFED00',
+  _ : '#000000'
+} as const;
+
+
 interface SentimentAnalysis {
   average_sentiment: number;
   sentiment_words_count: number;
@@ -47,14 +62,35 @@ interface PartyData {
   sentiment_analysis: SentimentAnalysis;
   text_analysis: TextAnalysis;
   mentioned_parties: Record<string, number>;
+  interesting_words_count: InterestingWordsCount;
 }
 
 interface CombinedData {
   [party: string]: PartyData;
 }
 
+interface InterestingWordsCount {
+  [word: string]: number;
+}
+
 const PartyDashboard = () => {
   const [data, setData] = useState<CombinedData | null>(null);
+
+  const [selectedCategory, setSelectedCategory] = useState<'negative_nomen' | 'negative_verben' | 'negative_adjektive' | 
+    'positive_nomen' | 'positive_verben' | 'positive_adjektive' | 
+    'sonstiges'>('positive_nomen');
+
+
+    const wordCategories = {
+      'negative_nomen': ["krieg", "sorge", "unsicherheit", "gefahr", "gefahren", "schuld", "schaden", "arbeitslosigkeit"],
+      'negative_verben': ["verweigern", "ablehnen", "zerstören", "verlieren", "hassen", "betrügen", "scheitern", "verletzen", "vergessen", "verhindern", "verzögern"],
+      'negative_adjektive': ["gemein", "egoistisch", "feindselig", "bösartig", "ungerecht", "unzuverlässig", "unehrlich", "grausam", "arrogant", "rücksichtslos"],
+      'positive_nomen': ["liebe", "freundschaft", "hoffnung", "frieden", "glück", "erfolg", "ehrlichkeit", "vertrauen", "mut", "dankbarkeit"],
+      'positive_verben': ["lieben", "helfen", "fördern", "ermutigen", "loben", "unterstützen", "schützen", "teilen", "verzeihen"],
+      'positive_adjektive': ["freundlich", "hilfsbereit", "ehrlich", "zuverlässig", "mutig", "liebenswert", "loyal", "geduldig", "respektvoll", "dankbar"],
+      'sonstiges': ["familie", "rente", "migration", "infrastruktur", "digitalisierung", "diversität", "kinder"]
+    } as const;
+
 
   useEffect(() => {
     fetch('/combined_data.json')
@@ -181,23 +217,24 @@ const PartyDashboard = () => {
         <div className="bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-semibold mb-4">Party Mentions</h2>
             <div className="h-96">
-            <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={partyMentionsData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                {partyList.map((party, index) => (
-                    <Bar 
-                    key={party} 
-                    dataKey={party} 
-                    fill={`hsl(${index * 60}, 70%, 60%)`} 
-                    name={party.toUpperCase()}
-                    />
-                ))}
-                </BarChart>
-            </ResponsiveContainer>
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={partyMentionsData}>
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        {partyList.map((party: string) => (
+                          <Bar 
+                              key={party} 
+                              dataKey={party} 
+                              fill={PARTY_COLORS[party]}
+                              name={party.toUpperCase()}
+                          />
+                      ))}
+    
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
         </div>
   
@@ -265,6 +302,50 @@ const PartyDashboard = () => {
             </ResponsiveContainer>
           </div>
         </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h2 className="text-xl font-semibold mb-4">Word Usage Analysis</h2>
+        <div className="mb-4">
+          <select 
+            className="p-2 border rounded"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value as keyof typeof wordCategories)}
+          >
+            <option value="positive_nomen">Positive Nomen</option>
+            <option value="positive_verben">Positive Verben</option>
+            <option value="positive_adjektive">Positive Adjektive</option>
+            <option value="negative_nomen">Negative Nomen</option>
+            <option value="negative_verben">Negative Verben</option>
+            <option value="negative_adjektive">Negative Adjektive</option>
+            <option value="sonstiges">Sonstige Begriffe</option>
+          </select>
+        </div>
+        <div className="h-96">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={Object.entries(data).map(([party, partyData]) => ({
+              name: party.toUpperCase(),
+              ...wordCategories[selectedCategory].reduce((acc, word) => ({
+                ...acc,
+                [word]: partyData.interesting_words_count[word] || 0
+              }), {})
+            }))}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              {wordCategories[selectedCategory].map((word) => (
+                <Bar 
+                  key={word} 
+                  dataKey={word} 
+                  fill={`hsl(${(wordCategories[selectedCategory].indexOf(word) * 360) / wordCategories[selectedCategory].length}, 70%, 60%)`}
+                  name={word}
+                />
+              ))}
+            </BarChart>
+
+          </ResponsiveContainer>
+        </div>
+      </div>
       </div>
     );
   };
