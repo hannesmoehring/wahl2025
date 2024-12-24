@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 
@@ -16,6 +15,9 @@ const PARTY_COLORS = {
   'fdp': '#FFED00',
   _ : '#000000'
 } as const;
+
+type PartyColor = keyof typeof PARTY_COLORS;
+
 
 
 interface SentimentAnalysis {
@@ -69,23 +71,29 @@ interface InterestingWordsCount {
   [word: string]: number;
 }
 
+
+type WordCategories = {
+  [K in 'negative_nomen' | 'negative_verben' | 'negative_adjektive' | 
+      'positive_nomen' | 'positive_verben' | 'positive_adjektive' | 
+      'sonstiges']: readonly string[];
+};
+
+const wordCategories: WordCategories = {
+  'negative_nomen': ["krieg", "sorge", "unsicherheit", "gefahr", "gefahren", "schuld", "schaden", "arbeitslosigkeit"],
+  'negative_verben': ["verweigern", "ablehnen", "zerstören", "verlieren", "hassen", "betrügen", "scheitern", "verletzen", "vergessen", "verhindern", "verzögern"],
+  'negative_adjektive': ["gemein", "egoistisch", "feindselig", "bösartig", "ungerecht", "unzuverlässig", "unehrlich", "grausam", "arrogant", "rücksichtslos"],
+  'positive_nomen': ["liebe", "freundschaft", "hoffnung", "frieden", "glück", "erfolg", "ehrlichkeit", "vertrauen", "mut", "dankbarkeit"],
+  'positive_verben': ["lieben", "helfen", "fördern", "ermutigen", "loben", "unterstützen", "schützen", "teilen", "verzeihen"],
+  'positive_adjektive': ["freundlich", "hilfsbereit", "ehrlich", "zuverlässig", "mutig", "liebenswert", "loyal", "geduldig", "respektvoll", "dankbar"],
+  'sonstiges': ["familie", "rente", "migration", "infrastruktur", "digitalisierung", "diversität", "kinder"]
+};
+
 const PartyDashboard = () => {
   const [data, setData] = useState<CombinedData | null>(null);
 
   const [selectedCategory, setSelectedCategory] = useState<'negative_nomen' | 'negative_verben' | 'negative_adjektive' | 
     'positive_nomen' | 'positive_verben' | 'positive_adjektive' | 
     'sonstiges'>('positive_nomen');
-
-
-    const wordCategories = {
-      'negative_nomen': ["krieg", "sorge", "unsicherheit", "gefahr", "gefahren", "schuld", "schaden", "arbeitslosigkeit"],
-      'negative_verben': ["verweigern", "ablehnen", "zerstören", "verlieren", "hassen", "betrügen", "scheitern", "verletzen", "vergessen", "verhindern", "verzögern"],
-      'negative_adjektive': ["gemein", "egoistisch", "feindselig", "bösartig", "ungerecht", "unzuverlässig", "unehrlich", "grausam", "arrogant", "rücksichtslos"],
-      'positive_nomen': ["liebe", "freundschaft", "hoffnung", "frieden", "glück", "erfolg", "ehrlichkeit", "vertrauen", "mut", "dankbarkeit"],
-      'positive_verben': ["lieben", "helfen", "fördern", "ermutigen", "loben", "unterstützen", "schützen", "teilen", "verzeihen"],
-      'positive_adjektive': ["freundlich", "hilfsbereit", "ehrlich", "zuverlässig", "mutig", "liebenswert", "loyal", "geduldig", "respektvoll", "dankbar"],
-      'sonstiges': ["familie", "rente", "migration", "infrastruktur", "digitalisierung", "diversität", "kinder"]
-    } as const;
 
 
   useEffect(() => {
@@ -224,7 +232,7 @@ const PartyDashboard = () => {
                           <Bar 
                               key={party} 
                               dataKey={party} 
-                              fill={PARTY_COLORS[party]} // eslint-disable-line 
+                              fill={PARTY_COLORS[party as PartyColor] || '#000000'}
                               name={party.toUpperCase()}
                           />
                       ))}
@@ -333,7 +341,7 @@ const PartyDashboard = () => {
                 <Bar 
                   key={word} 
                   dataKey={word} 
-                  fill={`hsl(${(wordCategories[selectedCategory].indexOf(word) * 360) / wordCategories[selectedCategory].length}, 70%, 60%)`} //eslint-disable-line
+                  fill={`hsl(${(wordCategories[selectedCategory].indexOf(word) * 360) / wordCategories[selectedCategory].length}, 70%, 60%)`} 
                   name={word}
                 />
               ))}
